@@ -2,34 +2,33 @@
 
 MariaDB, image is based on the Alpine base image with 0 vulnerabilities.
 
-## Current Docker image
+## Current Docker image (~216MB)
 
 Security scanning using Clair
 ```
-clair-scanner secureimages/mariadb:10.4.12-alpine-3.11.5
-2020/03/24 17:56:59 [INFO] ▶ Start clair-scanner
-2020/03/24 17:57:01 [INFO] ▶ Server listening on port 9279
-2020/03/24 17:57:01 [INFO] ▶ Analyzing dac63304c60354902922613d675ec533c6e10879f72d49b7602575ae5d5f9257
-2020/03/24 17:57:01 [INFO] ▶ Analyzing be23309acd6b592e1a1fbebd601f9addab442e072cc9ed6a5898517c83699f0e
-2020/03/24 17:57:01 [INFO] ▶ Analyzing efd410924be541b0cda7093b456bb7a4c52e7300f1d0aa86f80b48cbfb73b3d5
-2020/03/24 17:57:01 [INFO] ▶ Analyzing 9e3c1181782a799a1c451c70b99afde95d54a6dd24b32f6556db1cc09c5342d4
-2020/03/24 17:57:02 [INFO] ▶ Image [secureimages/mariadb:10.4.12-alpine-3.11.5] contains NO unapproved vulnerabilities
+clair-scanner secureimages/mariadb:10.4.12-alpine-3.11.6
+2020/04/25 14:06:10 [INFO] ▶ Start clair-scanner
+2020/04/25 14:06:12 [INFO] ▶ Server listening on port 9279
+2020/04/25 14:06:12 [INFO] ▶ Analyzing a5304328ea0f44bd1ac8bb5416ad6b7cc3b747ac232c6af66d7d9f12e9854344
+2020/04/25 14:06:12 [INFO] ▶ Analyzing e0df692e37f0b0f6a72bab0e4da4336ac86e1f753ede6907115f2e23e0317c33
+2020/04/25 14:06:12 [INFO] ▶ Analyzing a47eb43c2e3f762e8ac2149bf47c8d089765fd9101cd03ce2c2a52932458ba67
+2020/04/25 14:06:12 [INFO] ▶ Analyzing 4aec6247d06041fa41b3349132bb0175f96a7d46dda760e8db5d86460a178679
+2020/04/25 14:06:12 [INFO] ▶ Image [secureimages/mariadb:10.4.12-alpine-3.11.6] contains NO unapproved vulnerabilities
 ```
 
 Security scanning using Trivy
 ```
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.5.3 --no-progress secureimages/mariadb:10.4.12-alpine-3.11.5
-2020-03-24T15:57:07.017Z        INFO    Need to update DB
-2020-03-24T15:57:07.017Z        INFO    Downloading DB...
-2020-03-24T15:57:10.828Z        INFO    Reopening DB...
-2020-03-24T15:57:14.619Z        INFO    Detecting Alpine vulnerabilities...
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.6.0 --no-progress secureimages/mariadb:10.4.12-alpine-3.11.6
+2020-04-25T11:06:20.096Z        INFO    Need to update DB
+2020-04-25T11:06:20.096Z        INFO    Downloading DB...
+2020-04-25T11:06:26.958Z        INFO    Detecting Alpine vulnerabilities...
 
-secureimages/mariadb:10.4.12-alpine-3.11.5 (alpine 3.11.5)
+secureimages/mariadb:10.4.12-alpine-3.11.6 (alpine 3.11.6)
 ==========================================================
 Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 ```
 
-## Official Docker image
+## Official Docker image (~357MB)
 
 [https://hub.docker.com/_/mariadb](https://hub.docker.com/_/mariadb)
 ```
@@ -39,35 +38,34 @@ docker pull mariadb:10.4.12
 Security scanning using Clair
 ```
 clair-scanner mariadb:10.4.12
-2020/03/24 17:57:18 [INFO] ▶ Start clair-scanner
-2020/03/24 17:57:23 [INFO] ▶ Server listening on port 9279
-2020/03/24 17:57:23 [INFO] ▶ Analyzing 9b149207c14ccc7c04f7f633b0a930523710ba21a7b16e2ecfe39d48f66cc21f
-2020/03/24 17:57:23 [INFO] ▶ Analyzing cbdf172a7a4a570fda50e47076f05fe92941ea0c16217fcd49ac46ee77266fdd
-2020/03/24 17:57:23 [INFO] ▶ Analyzing 98558aadc1dc3c58cfaf76054219beebaa9e77fdd4f69cddbdb3c0139b5e2e26
-2020/03/24 17:57:23 [INFO] ▶ Analyzing 0d1696737b748c5cfcab13026189a06bc9af53751a545fb486482c73ff942051
-2020/03/24 17:57:23 [INFO] ▶ Analyzing 927b0b676d4cdbae2fedf7d1548e883e0288c76446ff6cba1420902b4a026531
-2020/03/24 17:57:23 [INFO] ▶ Analyzing ea06b25880d0faf50f1263da34baef58f634fce90195cd1fcbd5d0698be42e7a
-2020/03/24 17:57:24 [INFO] ▶ Analyzing ec9851c9d3d69abc9f9b067c00fe87692ae3f31b7418f02e3b6bfa53d8b223bc
-2020/03/24 17:57:24 [INFO] ▶ Analyzing c95672807679d6944e9221495b9692ef21fe0c9f1992e0417e7c460837e3c4c2
-2020/03/24 17:57:24 [INFO] ▶ Analyzing 92312645c010bb9c05e3f750ccf8fadd4ae13fcff5960c95af17d91ef222322f
-2020/03/24 17:57:24 [INFO] ▶ Analyzing 8b9572113ba6f278b88bdd957e4a37b6b977aec2a4e4e69ce6cfec4c369496d3
-2020/03/24 17:57:24 [INFO] ▶ Analyzing 1804da5c8a11efd57e9afe9714277001a9d386ac6e9dc9b17af01cd7cfa9e557
-2020/03/24 17:57:24 [INFO] ▶ Analyzing b47a61cb18875a7104c8a42b7b7ca8b27367df3397a9e7ebe271efb4ae83c6db
-2020/03/24 17:57:24 [INFO] ▶ Analyzing 2af5b427d0d6f56302962942e6a47eece8294aaeaebf63cab43f3adf953ec287
-2020/03/24 17:57:24 [INFO] ▶ Analyzing 53c630043d0b0c5a23184406254254c9e3660e71e67c71fdcea58b0943ed1b53
-2020/03/24 17:57:24 [WARN] ▶ Image [mariadb:10.4.12] contains 42 total vulnerabilities
-2020/03/24 17:57:24 [ERRO] ▶ Image [mariadb:10.4.12] contains 42 unapproved vulnerabilities
+2020/04/25 14:06:32 [INFO] ▶ Start clair-scanner
+2020/04/25 14:06:37 [INFO] ▶ Server listening on port 9279
+2020/04/25 14:06:37 [INFO] ▶ Analyzing 6ef5a7b6cc6da3fe4489191c166763832ff732b6c346e7d77a2dbbd3e89a9f08
+2020/04/25 14:06:37 [INFO] ▶ Analyzing c774328901d4a9ee5201de46d502b8f56f9b6a5d21c64affa6ca96d3b69cfe68
+2020/04/25 14:06:37 [INFO] ▶ Analyzing 67b382b86062872cc280027bfb3cc103cba4e52bb66d23c590e0cb8647dd39fe
+2020/04/25 14:06:37 [INFO] ▶ Analyzing 4e0bca968c343d4488ae5b156e0b4a6630a6964bd401264b3fe9060a266f4ce7
+2020/04/25 14:06:37 [INFO] ▶ Analyzing 0d3d8fda25b2c82aa08dc2a897c8105abeaf85548f9eadf15dbb41de7e38213b
+2020/04/25 14:06:37 [INFO] ▶ Analyzing 16a0eaab1900b14f8085832f73b719f8a295dd507fb32332cc09fff3086d32ab
+2020/04/25 14:06:37 [INFO] ▶ Analyzing c6fb389ce54e019ad77c1f575e3b13830e5246fae84eccf574ab736f28c5e546
+2020/04/25 14:06:37 [INFO] ▶ Analyzing aa38767331d3d6dcc039c78c1a61f267da3047f0e8eb1dfea27a522faa2bd18b
+2020/04/25 14:06:37 [INFO] ▶ Analyzing 6ee61c7300fa1b7f4efe123a970bdb7abff0fd30be8df4496d74cf3322f8eb45
+2020/04/25 14:06:37 [INFO] ▶ Analyzing 8c5290f53e1efb1bbfd620ade86bd90ac3f620c275e672cc31baf99340ed78b5
+2020/04/25 14:06:37 [INFO] ▶ Analyzing bcc57437036a64c93c29ff1b521257dc227fb59b89175a7acabf6fe918f53a74
+2020/04/25 14:06:37 [INFO] ▶ Analyzing 1c936a4775ef5fc44b571a4bb89d1a757b5e0ea5461fd06ebe36f69f5bd5c75a
+2020/04/25 14:06:37 [INFO] ▶ Analyzing 10e49b63deffb06769b5e62e6a823c754a664dff049ddd75578ffebc76ee7f94
+2020/04/25 14:06:37 [INFO] ▶ Analyzing 354c88594a9f4294a0c2214ae8260dd9c8b209364cc9fbe44559ef8367fffd14
+2020/04/25 14:06:37 [WARN] ▶ Image [mariadb:10.4.12] contains 52 total vulnerabilities
+2020/04/25 14:06:37 [ERRO] ▶ Image [mariadb:10.4.12] contains 52 unapproved vulnerabilities
 ```
 
 Security scanning using Trivy
 ```
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.5.3 --no-progress mariadb:10.4.12
-2020-03-24T15:57:28.380Z        INFO    Need to update DB
-2020-03-24T15:57:28.380Z        INFO    Downloading DB...
-2020-03-24T15:57:31.742Z        INFO    Reopening DB...
-2020-03-24T15:57:38.408Z        INFO    Detecting Ubuntu vulnerabilities...
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.6.0 --no-progress mariadb:10.4.12
+2020-04-25T11:06:40.620Z        INFO    Need to update DB
+2020-04-25T11:06:40.620Z        INFO    Downloading DB...
+2020-04-25T11:06:49.463Z        INFO    Detecting Ubuntu vulnerabilities...
 
 mariadb:10.4.12 (ubuntu 18.04)
 ==============================
-Total: 102 (UNKNOWN: 0, LOW: 13, MEDIUM: 71, HIGH: 18, CRITICAL: 0)
+Total: 113 (UNKNOWN: 0, LOW: 15, MEDIUM: 78, HIGH: 20, CRITICAL: 0)
 ```
