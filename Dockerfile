@@ -3,9 +3,9 @@ LABEL website="Secure Docker Images https://secureimages.dev"
 LABEL description="We secure your business from scratch."
 LABEL maintainer="hireus@secureimages.dev"
 
-ARG MARAIDB_VERSION=10.4.12-r0
+ARG MARAIDB_VERSION=10.4.13-r0
 
-RUN apk add --no-cache pwgen \
+RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main pwgen \
         mariadb=${MARAIDB_VERSION} \
         mariadb-client=${MARAIDB_VERSION} \
         mariadb-server-utils=${MARAIDB_VERSION} ;\
